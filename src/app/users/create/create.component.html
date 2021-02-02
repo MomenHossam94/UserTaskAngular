@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2>Add User</h2>
-    <form  class="form" role="form"  #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)"> 
+    <form  ngNativeValidate class="form" role="form"  #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)"> 
       
         <div class="form-group">
             <label for="">Name</label>
@@ -30,7 +30,7 @@
             <div class="form-group col-md-6">
                 <label for="">Position</label>
                     <select name="position"  class="form-control" ngModel>
-                        <option disabled>Select Position</option>
+                        <option selected disabled>Select Position</option>
                         <option *ngFor="let key of keys" selected [value]="key" [label]="position[key]"></option>
                     </select>
                   
