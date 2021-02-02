@@ -41,10 +41,7 @@ export class EditComponent implements OnInit {
     //  position:+value.position,
     //  salary: value.salary,
     // };
-    let user ={
-      ...value,
-      phone: `${value.phone}`
-    };
+   
      this._userService.EditUser(value).subscribe(response=>{
        this._route.navigateByUrl('/users');
      })

@@ -21,22 +21,20 @@ export class CreateComponent implements OnInit {
   }
   onSubmit(value:any):void
   {
-  //  let user:User={
-  //    id:0,
-  //   name:value.name,
-  //   age:value.age,
-  //   joiningDate : value.joiningDate,
-  //   address:value.address,
-  //   phone:value.phone,
-  //   position:value.position,
-  //   salary: value.salary,
-  //  };
-  let user = {
-    ...value
-  }
+   let user:User={
+     id:0,
+    name:value.name,
+    age:value.age,
+    joiningDate : value.joiningDate,
+    address:value.address,
+    phone:value.phone,
+    position:value.position,
+    salary: value.salary,
+   };
+
    this._userService.postUser(user).subscribe(
      response=>{
-      this._route.navigateByUrl('');
+      this._route.navigateByUrl('/users');
      }
    );
 
