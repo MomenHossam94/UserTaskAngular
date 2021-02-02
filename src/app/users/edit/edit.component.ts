@@ -10,7 +10,7 @@ import { UsersService } from '../services/users.service';
 })
 export class EditComponent implements OnInit {
   user:User=new User();
-  id:number=0;
+
   position = Position;
   keys: any[];
   constructor(private _route:Router,private _activateRoute:ActivatedRoute,private _userService:UsersService) { }
@@ -20,14 +20,15 @@ export class EditComponent implements OnInit {
     
     this._activateRoute.paramMap.subscribe(
       params=>{
-        this.id=Number(params.get("id"))
+       const id=Number(params.get("id"))
+        this._userService.getUser(id).subscribe(response=>{
+          this.user = response as User
+         
+     
+         });
        }
     );
-      this._userService.getUser(this.id).subscribe(response=>{
-        this.user = response as User
-       
    
-       });
   }
   onSubmit(value:any)
   {
